@@ -1,0 +1,274 @@
+// Apply a natural box layout model to all elements
+// but allowing components to change
+// http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+
+$color-grey : #676b6d;
+
+$color-level-1 : #c4dff6;
+$color-level-2 : #7ab7eb;
+$color-level-3 : #4e9fe4;
+$color-level-4 : #1b6cb1;
+$color-level-5 : #103f68;
+
+html, body {
+    box-sizing: border-box;
+    background-color: white;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+    font-family: 'Lato', 'Arial', sans-serif;
+}
+
+.row {
+    text-align: center;
+    width: 1000px;
+    margin: 0 auto;
+    padding-top: 100px;
+}
+
+h1 {
+    color: rgba($color-level-4, 1);
+    font-weight: 400;
+    font-family: 'Lato', 'Arial', sans-serif;
+    font-size: 25px;
+    margin: 0px 10px 30px 10px;
+}
+
+.analyzer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: stretch;
+    margin-bottom: 200px;
+
+    &__text-editor {
+        display: block;
+        margin: 0 auto;
+        width: 70%;
+        height: 400px;
+        font-size: 15px;
+        border: 1px dashed rgba($color-level-1, 1);
+        color: $color-grey;
+        padding: 20px 15px;
+        letter-spacing: 1px;
+        word-spacing: 1px;
+        position: relative;
+        margin-right: 15px;
+        background-color: transparent;
+    }
+
+    &__text-editor:focus {
+        outline: none;
+    }
+
+    &__text-editor::placeholder {
+        color: $color-level-1;
+        text-align: center;
+        line-height: 430px;
+    }
+
+    &__panel {
+        width: 100%;
+        display: flex;
+        margin-top: 15px;
+        position: relative;
+    }
+}
+
+.word-cloud {
+    min-height: 250px;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    color: $color-level-1;
+    border: 1px dashed rgba($color-level-1, 1);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.border-none {
+    border: none;
+}
+
+.display-block {
+    display: block;
+}
+
+.cloud-element {
+    display: inline-block;
+    color: rgba(skyblue, .8);
+    transition: all .5s ease-out;
+    padding: 1px 3px;
+    cursor: default;
+    user-select: none;
+    left: 450px;
+    top: 175px;
+}
+
+.position-absolute {
+    position: absolute;
+}
+
+.cloud-element:hover {
+    transform: scale(1.2);
+    border: 1px solid rgba($color-level-1, 1);
+    border-radius: 20px;
+    color: rgba($color-level-4, 1);
+    background-color: #ffffff;
+}
+
+.level-1 {
+    font-size: 11px;
+    color: rgba($color-level-1, 1);
+}
+
+.level-2 {
+    font-size: 17px;
+    color: rgba($color-level-2, 1);
+}
+
+.level-3 {
+    font-size: 20px;
+    color: rgba($color-level-3, 1);
+}
+
+.level-4 {
+    font-size: 21px;
+    color: rgba($color-level-4, 1);
+    text-transform: uppercase;
+}
+
+.level-5 {
+    font-size: 23px;
+    color: rgba($color-level-5, 1);
+    text-transform: uppercase;
+}
+
+.top-words {
+    padding-left: 10px;
+    margin: 15px 0 0 0;
+    padding: 0;
+
+    &__list {
+        padding: 5px 10px;
+    }
+}
+
+.side-bar {
+    border: 1px dashed rgba($color-level-1, 1);
+    width: 300px;
+}
+
+.top-word {
+    list-style: none;
+    text-align: left;
+    color: $color-grey;
+    text-transform: uppercase;
+    font-size: 15px;
+    display: flex;
+    align-content: center;
+    margin-bottom: 5px;
+
+    &__title {
+        font-size: 17px;
+        color: rgba($color-level-4, 1);
+        margin: 0 0 10px 0;
+        word-spacing: 1px;
+    }
+
+    &-level-1::before,
+    &-level-2::before,
+    &-level-3::before,
+    &-level-4::before,
+    &-level-5::before, {
+        display: inline-block;
+        content: '';
+        width: 20px;
+        height: 20px;
+        border-radius: 3px;
+        margin-right: 10px;
+    }
+
+    &-level-1::before {
+        background-color: rgba($color-level-1, .7);
+    }
+
+    &-level-2::before {
+        background-color: rgba($color-level-2, .7);
+    }
+
+    &-level-3::before {
+        background-color: rgba($color-level-3, .7);
+    }
+
+    &-level-4::before {
+        background-color: rgba($color-level-4, .7);
+    }
+
+    &-level-5::before {
+        background-color: rgba($color-level-5, 1);
+    }
+}
+
+.inactive {
+    display: none;
+}
+
+.btn-view-change {
+    border: none;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-content: center;
+    color: $color-level-4;
+    margin-top: 5px;
+    cursor: pointer;
+
+    & .btn-icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 7px;
+        fill: $color-level-4;
+    }
+
+    & span {
+        font-size: 13px;
+    }
+}
+
+.add-margin {
+    margin-top: 150px;
+}
+
+.alert-character {
+    color: tomato;
+}
+
+.alert-display {
+    padding: 15px 15px;
+    border-radius: 8px;
+    box-shadow: 2px 5px 20px 0 rgba(46,61,73,.2);
+    background-color: rgba(#ffffff, .8);
+    color: $color-grey;
+    font-size: 17px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    position: absolute;
+    margin: 0;
+    left: 50%;
+    top: 50%;
+    transform: translate(-100%, -50%);
+    display: none;
+    opacity: 0;
+    transition: opacity .4s;
+}
+
+.active {
+    display: block;
+    opacity: 1;
+}

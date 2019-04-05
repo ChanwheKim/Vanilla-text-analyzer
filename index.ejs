@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,300italic' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <div class="row">
+        <h1 class="main-title">Text analyzer</h1>
+        <div class="analyzer">
+            <div class="analyzer__display">
+                <ul class="word-cloud">Please input text below..</ul>
+            </div>
+            <div class="analyzer__panel">
+                <textarea name="textarea" cols="30" rows="10" class="analyzer__text-editor" placeholder="Texts here..!! :)"></textarea>
+                <p class="alert-display"></p>
+                <div class="side-bar">
+                    <ul class="top-words inactive">
+                        <h1 class="top-word__title">High Frequency Words</h1>
+                        <div class="top-words__list"></div>
+                        <div class="btn-view-change">
+                            <svg class="btn-icon">
+                                <use xlink:href="/assets/images/sprite.svg#icon-rotate"></use>
+                            </svg>
+                            <span>View Change</span>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
